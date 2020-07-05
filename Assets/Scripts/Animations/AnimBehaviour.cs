@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimShow : StateMachineBehaviour
+public class AnimBehaviour : StateMachineBehaviour
 {
-    public PlayerController playerController;
+    private PlayerController playerController;
+    public State state;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        playerController.ChangeState(State.AnimCheck);
+        playerController.ChangeState(state);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

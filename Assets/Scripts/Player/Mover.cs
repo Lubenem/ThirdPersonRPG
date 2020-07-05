@@ -9,19 +9,15 @@ public class Mover : MonoBehaviour
     public float speed = 6f;
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVel;
-    private PlayerController playerController;
+
 
     private void Start()
     {
         charController = GetComponent<CharacterController>();
-        playerController = GetComponent<PlayerController>();
     }
 
-    private void Update()
+    public void Move(Vector3 direction)
     {
-        Vector3 direction = playerController.direction;
-        if (direction.magnitude <= 0) return;
-
         float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVel, turnSmoothTime);
         transform.rotation = Quaternion.Euler(0, angle, 0);
