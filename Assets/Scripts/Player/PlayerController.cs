@@ -42,11 +42,17 @@ public class PlayerController : MonoBehaviour
 
     private void GetMovementDirection()
     {
-        if (curState != State.Idle && curState != State.Run) return;
-
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        direction = new Vector3(horizontal, 0, vertical).normalized;
+
+        if (curState != State.Roll && curState != State.Jump)
+        {
+            direction = new Vector3(horizontal, 0, vertical).normalized;
+        }
+
+        anim.SetFloat("Magnitude", direction.magnitude);
+
+        if (curState != State.Idle && curState != State.Run) return;
 
         if (direction.magnitude > 0) ChangeState(State.Run);
         else ChangeState(State.Idle);
@@ -54,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void AnimCheck()
     {
-        if (curState == State.AnimCheck) return;
+        if (curState != State.Idle && curState != State.Run) return;
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) anim.SetTrigger("Anim1");
         else if (Input.GetKeyDown(KeyCode.Alpha2)) anim.SetTrigger("Anim2");
@@ -66,11 +72,12 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeState(State state)
     {
+        if (curState == state) return;
+
         if (state != State.Run)
         {
             anim.SetBool("Running", false);
-            direction = Vector3.zero;
-            if (curState == state) return;
+            // direction = Vector3.zero;
         }
 
         switch (state)
@@ -82,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
             case State.Run:
                 anim.SetBool("Running", true);
-                mover.Move(direction);
+                mover.speed = mover.runSpeed;
 
                 curState = State.Run;
                 break;
@@ -90,8 +97,7 @@ public class PlayerController : MonoBehaviour
             case State.Roll:
                 if (curState != State.Idle && curState != State.Run) return;
                 anim.SetTrigger("Roll");
-                charController.Move(transform.forward * 0.5f);
-
+                mover.speed = mover.rollSpeed;
 
                 curState = State.Roll;
                 break;
@@ -99,6 +105,7 @@ public class PlayerController : MonoBehaviour
             case State.Jump:
                 if (curState != State.Idle && curState != State.Run) return;
                 anim.SetTrigger("Jump");
+                mover.speed = mover.jumpSpeed;
 
                 curState = State.Jump;
                 break;
