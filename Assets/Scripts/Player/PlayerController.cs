@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        Vector3 joystickDir = new Vector3(joystick.Horizontal, joystick.Vertical, 0);
+        Vector3 joystickDir = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
         if (curState != State.Roll && curState != State.Jump)
         {
