@@ -14,11 +14,12 @@ public class PlayerController : MonoBehaviour
     // [HideInInspector]
     public Vector3 direction;
     public State curState;
+    public Joystick joystick;
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
 
         anim = GetComponent<Animator>();
         mover = GetComponent<Mover>();
@@ -44,10 +45,11 @@ public class PlayerController : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 joystickDir = new Vector3(joystick.Horizontal, joystick.Vertical, 0);
 
         if (curState != State.Roll && curState != State.Jump)
         {
-            direction = new Vector3(horizontal, 0, vertical).normalized;
+            direction = new Vector3(horizontal, 0, vertical).normalized + joystickDir;
         }
 
         anim.SetFloat("Magnitude", direction.magnitude);
@@ -77,7 +79,6 @@ public class PlayerController : MonoBehaviour
         if (state != State.Run)
         {
             anim.SetBool("Running", false);
-            // direction = Vector3.zero;
         }
 
         switch (state)
