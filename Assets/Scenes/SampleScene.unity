@@ -33,7 +33,7 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 32
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
@@ -70,7 +70,7 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
-    m_ReflectionCompression: 2
+    m_ReflectionCompression: 1
     m_MixedBakeMode: 2
     m_BakeBackend: 1
     m_PVRSampling: 1
@@ -366,6 +366,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fixed Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_Color.r
@@ -553,8 +558,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171918135}
-  m_LocalRotation: {x: 0.045759447, y: -0.65745884, z: 0.040058136, w: 0.7510322}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.04576067, y: -0.65743715, z: 0.04005687, w: 0.7510512}
+  m_LocalPosition: {x: 0, y: 0.00000011920929, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 985036158}
@@ -1278,7 +1283,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.045759432, y: -0.65745884, z: 0.040058132, w: 0.7510322}
+  m_LocalRotation: {x: 0.04576066, y: -0.65743715, z: 0.040056873, w: 0.7510512}
   m_LocalPosition: {x: 4.16, y: 1.9851146, z: -3.5800002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1515,7 +1520,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Animations:
 
-    1, 2, 3'
+    1, 2, 3, Shift, Space'
 --- !u!222 &1151799856
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1864,8 +1869,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547950080}
-  m_LocalRotation: {x: 0.06430344, y: -0.64110345, z: 0.054041397, w: 0.762844}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.06430559, y: -0.64107305, z: 0.05403885, w: 0.7628696}
+  m_LocalPosition: {x: 0, y: 0.00000011920929, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488388360}
@@ -2237,8 +2242,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069832400}
-  m_LocalRotation: {x: 0.08548927, y: -0.6355752, z: 0.07112003, w: 0.7639881}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.14752787, y: -0.62762576, z: -0.122721076, w: 0.75449383}
+  m_LocalPosition: {x: 0, y: -1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 868255861}
